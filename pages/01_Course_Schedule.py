@@ -13,87 +13,63 @@ with tab1:
     table_header = "| Date | Chapter | Keywords | Assignments & Activities | Remark |\n"
     table_divider = "|------|---------|----------|---------------------------|--------|\n"
     
-    # Start on Tuesday, September 2, 2025
-    start_date = datetime(2025, 9, 2)
-    
-    
-    
-    # ✅ STEP 1: Fill only the weeks you want — here, Week 3 has data (Sept. 16 & 18)
+    # Start-of-term date (used to compute the first Thursday)
+    start_date = datetime(2025, 9, 2)  # Tuesday
+    # Compute the first Thursday in (or after) the start week
+    # Monday=0 ... Thursday=3
+    first_thursday = start_date + timedelta(days=(3 - start_date.weekday()) % 7)
+
+    # Fill only Thursdays you care about
     schedule_content = {
         "2025-09-04": ["Ch. 1", "Syllabus, Course overview", "Grouping", "Reading pp. 2~5"],
-
         "2025-09-11": ["", "", "", ""],
-
         "2025-09-18": ["", "", "", ""],
-
         "2025-09-25": ["", "", "", ""],
- 
         "2025-10-02": ["", "", "", "🔴 Midterm #1"],
-
-        "2025-10-09": ["", "", "", ""],
-
+        "2025-10-09": ["", "", "", ""],   # Thursday (will be red)
         "2025-10-16": ["", "", "", ""],
-
         "2025-10-23": ["", "", "", ""],
-
         "2025-10-30": ["", "", "", ""],
-
         "2025-11-06": ["", "", "", ""],
-
         "2025-11-13": ["", "", "", ""],
-
         "2025-11-20": ["", "", "", ""],
-
         "2025-11-27": ["", "", "", ""],
-
         "2025-12-04": ["", "", "", ""],
-
         "2025-12-11": ["", "", "", ""],
-
-        "2025-12-18": ["", "", "", "🔴 Final exam"]
+        "2025-12-18": ["", "", "", "🔴 Final exam"],
     }
     
-    # ✅ STEP 2: Build the markdown table
+    def format_date(d: datetime) -> str:
+        s = d.strftime("%Y-%m-%d")
+        # highlight only Oct. 9
+        if s == "2025-10-09":
+            return f"<span style='color:red'>{d.strftime('%b. %d')}</span>"
+        return d.strftime("%b. %d")
+
+    # Build the markdown
     table_md = ""
-    
-    table_md = ""
-    
     for week in range(16):
-        # --- choose emoji/tag first ---
+        # Tag per week (unchanged)
         if 7 <= (week + 1) <= 11:
             emoji, tag = "💙", " (Academic trip) 〽️ 〽️ 〽️ 〽️ 〽️ 〽️ 〽️"
         else:
             emoji, tag = "🗓️", ""
-    
-        # --- label & header (once) ---
         week_label = f"**{emoji} Week {week + 1:02d}{tag}**"
         table_md += f"\n{week_label}\n\n"
         table_md += table_header + table_divider
-    
-        # --- dates for this week ---
 
-        thursday = tuesday + timedelta(weeks=week)
-    
-        # --- format date (red for Oct 7 & 9 only) ---
-        def format_date(d):
-            s = d.strftime("%Y-%m-%d")
-            if s in ("2025-10-07", "2025-10-09"):
-                return f"<span style='color:red'>{d.strftime('%b. %d')}</span>"
-            return d.strftime("%b. %d")
-    
-        # --- fetch content once for each date ---
+        # Thursday of this week
+        thursday = first_thursday + timedelta(weeks=week)
 
+        # Row for Thursday only
         thu_data = schedule_content.get(thursday.strftime("%Y-%m-%d"), ["", "", "", ""])
-    
-        # --- append EXACTLY TWO ROWS (do not append anywhere else) ---
+        table_md += (
+            f"| {format_date(thursday)} | {thu_data[0]} | {thu_data[1]} "
+            f"| {thu_data[2]} | {thu_data[3]} |\n"
+        )
 
-        table_md += f"| {format_date(thursday)} | {thu_data[0]} | {thu_data[1]} | {thu_data[2]} | {thu_data[3]} |\n"
-    
-
-    # ✅ STEP 3: Display it
+    # Show the table
     st.markdown(table_md, unsafe_allow_html=True)
-
-
 
 # ---------------- Tab 2: Syllabus / Course Info ----------------
 with tab2:
