@@ -17,3 +17,10 @@ st.image(IMAGE_URL, caption="Teaching is one of the best ways to learn.", width=
 # Put this below your caption
 IMAGE_URL = "https://github.com/MK316/classmaterial/raw/main/images/engedu-qr.png"
 st.image(IMAGE_URL, caption="Course access QR (Phonology & English Education)", width=100)
+
+col_l, col_c, col_r = st.columns([1,2,1])
+with col_c:
+    st.image("https://github.com/MK316/classmaterial/raw/main/images/bg01.png",
+             caption="Teaching is one of the best ways to learn.", width=300)
+    st.image("https://github.com/MK316/classmaterial/raw/main/images/engedu-qr.png",
+             caption="Course access QR (Phonology & English Education)", width=100)
