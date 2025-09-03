@@ -21,7 +21,7 @@ with tab1:
 
     # Fill only Thursdays you care about
     schedule_content = {
-        "2025-09-04": ["Ch. 1", "Syllabus, Course overview", "Grouping", "Reading pp. 2~5"],
+        "2025-09-04": ["Ch. 1", "Syllabus, Course overview", "Grouping", "Reading AEP Chapter 1"],
         "2025-09-11": ["", "", "", ""],
         "2025-09-18": ["", "", "", ""],
         "2025-09-25": ["", "", "", ""],
