@@ -8,6 +8,9 @@ import streamlit as st
 # ---------------- Page setup ----------------
 st.set_page_config(page_title="Lecture Slide Player - Chapter 1", layout="wide")
 st.markdown("#### 📗 Chapter 1: Articulation and Acoustics")
+st.markdown("[Reading01](https://github.com/MK316/classmaterial/blob/main/readings/Ch01.pdf)")
+
+
 
 # ------------ CONFIG (edit as needed) ------------
 GITHUB_OWNER  = "MK316"
