@@ -106,9 +106,9 @@ with st.sidebar:
     st.subheader("Controls")
     nav = st.columns([1, 1, 2])
     with nav[0]:
-        st.button("◀️ Prev", use_container_width=True, on_click=go_prev)
+        st.button("◀️", use_container_width=True, on_click=go_prev)
     with nav[1]:
-        st.button("Next ▶️", use_container_width=True, on_click=go_next)
+        st.button("▶️", use_container_width=True, on_click=go_next)
     with nav[2]:
         st.markdown(
             f"<div style='text-align:right; font-weight:600;'>{st.session_state.slide_idx + 1} / {len(slides)}</div>",
