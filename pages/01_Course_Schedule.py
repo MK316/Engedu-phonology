@@ -99,20 +99,10 @@ with tab2:
     st.markdown("### 📝 Course overview")
     st.markdown(
         """
-        This course introduces the fundamental aspects of the English sound system with an emphasis on
-        learning and teaching English pronunciation. We cover the basic phonetic properties of English
-        speech sounds—**consonants and vowels**—and core concepts needed to understand the sound system.
-        We also explore **English prosody** (syllables, rhythm, and intonation).
-
-        You will practice **phonetic transcription** of spoken English data and develop skills for teaching
-        pronunciation. Throughout the course, you’ll learn to distinguish **connected vs. isolated speech** and
-        **formal vs. informal** styles.
+        This course provides an introduction to English phonology, focusing on the sound system of English, and the rules and principles that govern its pronunciation. Additionally, it covers fundamental concepts in phonetics to help students grasp the articulation of English sounds (Basic Phonetics). Designed specifically for students preparing for careers in English education, this course equips future English teachers with the necessary skills to articulate, describe, and teach English pronunciation effectively. Throughout the course, students will explore phonological differences between Korean and English. This knowledge will enable them to anticipate and address the specific challenges Korean learners might face when learning English pronunciation, enhancing their teaching effectiveness.
         """
     )
-    AUDIO_URL = "https://raw.githubusercontent.com/MK316/english-phonetics/main/pages/audio/audio-overview.mp3"
 
-    # Click-to-play audio (no autoplay)
-    st.audio(AUDIO_URL, format="audio/mp3", start_time=0)
 
     # --- Textbook & Software ---
     st.markdown("### 📚 Textbook & Software")
@@ -121,7 +111,12 @@ with tab2:
         st.markdown(
             """
             **Textbook**  
-            Johnson, K. & Ladefoged, P. (2014). *A Course in Phonetics* (7th ed.). CENGAGE Learning.
+            1. Applied English Phonology (4th edition) by Mehmet Yavaʂ (2020), Wiley Blackwell. (Selected chapters)
+            2. A Course in Phonetics (7th edition) by Ladefoged P. & Keith J. (2014), CENGAGE. 
+            
+            (Selected chapters; Pdf files will be posted online.)  
+            * Note: There can be additional readings from other textbooks. Pdf files will be posted online.
+
             """
         )
     with sw:
@@ -139,9 +134,8 @@ with tab2:
     data = [
         ["Attendance & class participation", "10%", "Unexcused absence (−1); late check-in (−0.2)"],
         ["Quizzes", "30%", "TBA"],
-        ["Exam", "40%", "Final exam"],
-        ["Assignments", "10%", "Group activities: Exercises (5), Transcription (5)"],
-        ["Summary notes", "10%", "All chapters (will be checked 3 times)"],
+        ["Exam", "30%", "Final exam"],
+        ["Assignments", "30%", "Group activities: Exercises (5), Transcription (5)"],
     ]
     df = pd.DataFrame(data, columns=["Component", "Percentage", "Notes"])
 
