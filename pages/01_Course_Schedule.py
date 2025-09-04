@@ -21,8 +21,8 @@ with tab1:
 
     # Fill only Thursdays you care about
     schedule_content = {
-        "2025-09-04": ["Ch. 1", "Syllabus, Course overview", "Grouping", "Reading AEP Chapter 1"],
-        "2025-09-11": ["", "", "", ""],
+        "2025-09-04": ["Ch. 1 (Phonetics)", "Syllabus, Course overview", "Grouping", "Reading Chapter 1 (A course in phonetics)"],
+        "2025-09-11": ["Ch. 1", "Describing sounds; English sound system", "", ""],
         "2025-09-18": ["", "", "", ""],
         "2025-09-25": ["", "", "", ""],
         "2025-10-02": ["", "", "", "🔴 Midterm #1"],
