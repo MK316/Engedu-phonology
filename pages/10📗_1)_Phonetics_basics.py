@@ -133,17 +133,34 @@ with st.sidebar:
 # ===== Main Slide =====
 idx = st.session_state.slide_idx
 if st.session_state.fit_to_height:
-    st.image(
-        slides[idx],
-        caption=f"Slide {idx + 1} / {len(slides)}",
-        use_column_width=True
+    st.markdown(
+        f"""
+        <div style="display:flex; justify-content:center;">
+            <img
+                src="{slides[idx]}"
+                alt="Slide {idx + 1}"
+                style="
+                    max-height: {st.session_state.vh_percent}vh;
+                    width: auto;
+                    height: auto;
+                    object-fit: contain;
+                    border: 1px solid #ccc;
+                    box-shadow: 2px 2px 6px rgba(0,0,0,0.1);
+                "
+            />
+        </div>
+        """,
+        unsafe_allow_html=True,
     )
+    st.caption(f"Slide {idx + 1} / {len(slides)}")
 else:
     st.image(
         slides[idx],
         caption=f"Slide {idx + 1} / {len(slides)}",
-        width=st.session_state.display_width_px
+        width=st.session_state.display_width_px,
+        use_container_width=False
     )
+
 
 # ===== Thumbnails =====
 with st.expander("📑 Thumbnails", expanded=False):
