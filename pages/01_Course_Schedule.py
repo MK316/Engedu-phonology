@@ -135,7 +135,7 @@ with tab2:
         ["Attendance & class participation", "10%", "Unexcused absence (−1); late check-in (−0.2)"],
         ["Quizzes", "30%", "TBA"],
         ["Exam", "30%", "Final exam"],
-        ["Assignments", "30%", "Group activities: Exercises (5), Transcription (5)"],
+        ["Assignments", "30%", "AEP Chapter 10 summary (15%), Song Transcription (15%)"],
     ]
     df = pd.DataFrame(data, columns=["Component", "Percentage", "Notes"])
 
