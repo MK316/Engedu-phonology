@@ -22,7 +22,7 @@ with tab1:
     schedule_content = {
         "2025-09-04": ["Ch. 1", "Syllabus, Course overview, Vocal anatomy", "","Summary note-taking"],
 
-        "2025-09-11": ["Ch. 1 (Phonetics)", "Articulation and acoustics", "Lecture video on LMS (Ch1 Acoustics)", "Summary note-taking"],
+        "2025-09-11": ["Ch. 1 (Phonetics)", "Articulation and acoustics", "📌 Lecture video on LMS (Ch1 Acoustics)", "Summary note-taking"],
 
         "2025-09-18": ["", "", "", ""],
 
