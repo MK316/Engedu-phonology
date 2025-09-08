@@ -13,67 +13,92 @@ with tab1:
     table_header = "| Date | Chapter | Keywords | Assignments & Activities | Remark |\n"
     table_divider = "|------|---------|----------|---------------------------|--------|\n"
     
-    # Start-of-term date (used to compute the first Thursday)
-    start_date = datetime(2025, 9, 2)  # Tuesday
-    # Compute the first Thursday in (or after) the start week
-    # Monday=0 ... Thursday=3
-    first_thursday = start_date + timedelta(days=(3 - start_date.weekday()) % 7)
-
-    # Fill only Thursdays you care about
+    # Start on Tuesday, September 2, 2025
+    start_date = datetime(2025, 9, 2)
+    
+    
+    
+    # ✅ STEP 1: Fill only the weeks you want — here, Week 3 has data (Sept. 16 & 18)
     schedule_content = {
-        "2025-09-04": ["Ch. 1 (Phonetics)", "Syllabus, Course overview", "Grouping", "Reading Chapter 1 (A course in phonetics)"],
-        "2025-09-11": ["Ch. 1", "Describing sounds; English sound system", "", ""],
+        "2025-09-02": ["Ch. 1", "Syllabus, Course overview", "Grouping", "Reading Chapter 1"],
+        "2025-09-04": ["Ch. 1", "Vocal anatomy", "Lecture video on LMS (Ch1)","Summary note-taking"],
+        "2025-09-09": ["Ch. 2", "Phonetics & Phonology", "", "Summary note-taking"],
+        "2025-09-11": ["Ch. 2", "Phonetics & Phonology", "", "Summary note-taking"],
+        "2025-09-16": ["", "", "", ""],
         "2025-09-18": ["", "", "", ""],
+        "2025-09-23": ["", "", "", ""],
         "2025-09-25": ["", "", "", ""],
-        "2025-10-02": ["", "", "", "🔴 Midterm #1"],
-        "2025-10-09": ["", "", "", ""],   # Thursday (will be red)
+        "2025-09-30": ["", "", "", ""],
+        "2025-10-02": ["", "", "", "🔴 Quiz1 #1"],
+        "2025-10-07": ["", "", "", ""],
+        "2025-10-09": ["", "", "", ""],
+        "2025-10-14": ["", "", "", ""],
         "2025-10-16": ["", "", "", ""],
+        "2025-10-21": ["", "", "", ""],
         "2025-10-23": ["", "", "", ""],
+        "2025-10-28": ["", "", "", ""],
         "2025-10-30": ["", "", "", ""],
+        "2025-11-04": ["", "", "", ""],
         "2025-11-06": ["", "", "", ""],
+        "2025-11-11": ["", "", "", ""],
         "2025-11-13": ["", "", "", ""],
+        "2025-11-18": ["", "", "", "🔴 Quiz #2"],
         "2025-11-20": ["", "", "", ""],
+        "2025-11-25": ["", "", "", ""],
         "2025-11-27": ["", "", "", ""],
+        "2025-12-02": ["", "", "", ""],
         "2025-12-04": ["", "", "", ""],
+        "2025-12-09": ["", "", "", ""],
         "2025-12-11": ["", "", "", ""],
-        "2025-12-18": ["", "", "", "🔴 Final exam"],
+        "2025-12-16": ["", "", "", ""],
+        "2025-12-18": ["", "", "", "🔴 Final exam"]
     }
     
-    def format_date(d: datetime) -> str:
-        s = d.strftime("%Y-%m-%d")
-        # highlight only Oct. 9
-        if s == "2025-10-09":
-            return f"<span style='color:red'>{d.strftime('%b. %d')}</span>"
-        return d.strftime("%b. %d")
-
-    # Build the markdown
+    # ✅ STEP 2: Build the markdown table
     table_md = ""
+    
+    table_md = ""
+    
     for week in range(16):
-        # Tag per week (unchanged)
+        # --- choose emoji/tag first ---
         if 7 <= (week + 1) <= 11:
             emoji, tag = "💙", " (Academic trip) 〽️ 〽️ 〽️ 〽️ 〽️ 〽️ 〽️"
         else:
             emoji, tag = "🗓️", ""
+    
+        # --- label & header (once) ---
         week_label = f"**{emoji} Week {week + 1:02d}{tag}**"
         table_md += f"\n{week_label}\n\n"
         table_md += table_header + table_divider
-
-        # Thursday of this week
-        thursday = first_thursday + timedelta(weeks=week)
-
-        # Row for Thursday only
+    
+        # --- dates for this week ---
+        tuesday  = start_date + timedelta(weeks=week)
+        thursday = tuesday + timedelta(days=2)
+    
+        # --- format date (red for Oct 7 & 9 only) ---
+        def format_date(d):
+            s = d.strftime("%Y-%m-%d")
+            if s in ("2025-10-07", "2025-10-09"):
+                return f"<span style='color:red'>{d.strftime('%b. %d')}</span>"
+            return d.strftime("%b. %d")
+    
+        # --- fetch content once for each date ---
+        tue_data = schedule_content.get(tuesday.strftime("%Y-%m-%d"),  ["", "", "", ""])
         thu_data = schedule_content.get(thursday.strftime("%Y-%m-%d"), ["", "", "", ""])
-        table_md += (
-            f"| {format_date(thursday)} | {thu_data[0]} | {thu_data[1]} "
-            f"| {thu_data[2]} | {thu_data[3]} |\n"
-        )
+    
+        # --- append EXACTLY TWO ROWS (do not append anywhere else) ---
+        table_md += f"| {format_date(tuesday)}  | {tue_data[0]} | {tue_data[1]} | {tue_data[2]} | {tue_data[3]} |\n"
+        table_md += f"| {format_date(thursday)} | {thu_data[0]} | {thu_data[1]} | {thu_data[2]} | {thu_data[3]} |\n"
+    
 
-    # Show the table
+    # ✅ STEP 3: Display it
     st.markdown(table_md, unsafe_allow_html=True)
+
+
 
 # ---------------- Tab 2: Syllabus / Course Info ----------------
 with tab2:
-    st.markdown("## 💦 **Phonology & English Education (Fall 2025)**")
+    st.markdown("## 💦 **English Phonetics (Fall 2025)**")
     st.caption("Quick syllabus overview")
 
     # --- Top section: key facts + QR/link ---
@@ -83,10 +108,10 @@ with tab2:
         st.markdown(
             """
             **• Instructor:** Miran Kim (Professor, Rm# 301-316)  
-            **• Meeting Schedule:** Thursdays (6–7:50 pm)  
+            **• Meeting Schedule:** Tuesdays (1–1:50 pm) & Thursdays (2–2:50 pm)  
             **• Digital classroom:** [MK316.github.io](https://MK316.github.io)  — course apps & resources  
             **• LMS:** rec.ac.kr/gnu  
-            **• Classroom:** 301-317 
+            **• Classroom:** 301-330  
             """,
         )
 
@@ -99,10 +124,20 @@ with tab2:
     st.markdown("### 📝 Course overview")
     st.markdown(
         """
-        This course provides an introduction to English phonology, focusing on the sound system of English, and the rules and principles that govern its pronunciation. Additionally, it covers fundamental concepts in phonetics to help students grasp the articulation of English sounds (Basic Phonetics). Designed specifically for students preparing for careers in English education, this course equips future English teachers with the necessary skills to articulate, describe, and teach English pronunciation effectively. Throughout the course, students will explore phonological differences between Korean and English. This knowledge will enable them to anticipate and address the specific challenges Korean learners might face when learning English pronunciation, enhancing their teaching effectiveness.
+        This course introduces the fundamental aspects of the English sound system with an emphasis on
+        learning and teaching English pronunciation. We cover the basic phonetic properties of English
+        speech sounds—**consonants and vowels**—and core concepts needed to understand the sound system.
+        We also explore **English prosody** (syllables, rhythm, and intonation).
+
+        You will practice **phonetic transcription** of spoken English data and develop skills for teaching
+        pronunciation. Throughout the course, you’ll learn to distinguish **connected vs. isolated speech** and
+        **formal vs. informal** styles.
         """
     )
+    AUDIO_URL = "https://raw.githubusercontent.com/MK316/english-phonetics/main/pages/audio/audio-overview.mp3"
 
+    # Click-to-play audio (no autoplay)
+    st.audio(AUDIO_URL, format="audio/mp3", start_time=0)
 
     # --- Textbook & Software ---
     st.markdown("### 📚 Textbook & Software")
@@ -111,12 +146,7 @@ with tab2:
         st.markdown(
             """
             **Textbook**  
-            1. Applied English Phonology (4th edition) by Mehmet Yavaʂ (2020), Wiley Blackwell. (Selected chapters)
-            2. A Course in Phonetics (7th edition) by Ladefoged P. & Keith J. (2014), CENGAGE. 
-            
-            (Selected chapters; Pdf files will be posted online.)  
-            * Note: There can be additional readings from other textbooks. Pdf files will be posted online.
-
+            Johnson, K. & Ladefoged, P. (2014). *A Course in Phonetics* (7th ed.). CENGAGE Learning.
             """
         )
     with sw:
@@ -134,8 +164,9 @@ with tab2:
     data = [
         ["Attendance & class participation", "10%", "Unexcused absence (−1); late check-in (−0.2)"],
         ["Quizzes", "30%", "TBA"],
-        ["Exam", "30%", "Final exam"],
-        ["Assignments", "30%", "AEP Chapter 10 summary (15%), Song Transcription (15%)"],
+        ["Exam", "40%", "Final exam"],
+        ["Assignments", "10%", "Group activities: Exercises (5), Transcription (5)"],
+        ["Summary notes", "10%", "All chapters (will be checked 3 times)"],
     ]
     df = pd.DataFrame(data, columns=["Component", "Percentage", "Notes"])
 
