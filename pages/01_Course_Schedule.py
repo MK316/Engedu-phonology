@@ -5,7 +5,7 @@ import pandas as pd
 st.set_page_config(page_title="📘 16-Week Course Schedule", layout="wide")
 st.title("📘 Course Overview")
 
-tab1, tab2, tab3 = st.tabs(["Schedule", "Syllabus", "TBA"])
+tab1, tab2 = st.tabs(["Schedule", "TBA"])
 
 with tab1:
     st.caption("Textbooks: T1. A course in phonetics, T2. Applied English Phonology (AEP)")
@@ -96,91 +96,4 @@ with tab1:
 
 
 # ---------------- Tab 2: Syllabus / Course Info ----------------
-with tab2:
-    st.markdown("## 💦 **English Phonetics (Fall 2025)**")
-    st.caption("Quick syllabus overview")
 
-    # --- Top section: key facts + QR/link ---
-    col1, col2 = st.columns([3, 2], vertical_alignment="top")
-
-    with col1:
-        st.markdown(
-            """
-            **• Instructor:** Miran Kim (Professor, Rm# 301-316)  
-            **• Meeting Schedule:** Tuesdays (1–1:50 pm) & Thursdays (2–2:50 pm)  
-            **• Digital classroom:** [MK316.github.io](https://MK316.github.io)  — course apps & resources  
-            **• LMS:** rec.ac.kr/gnu  
-            **• Classroom:** 301-330  
-            """,
-        )
-
-    with col2:
-        QR_URL = "https://github.com/MK316/english-phonetics/raw/main/pages/images/qr_phonetics.png"
-        st.image(QR_URL, caption="Digital classroom QR", width=150)  # set width in pixels
-    st.divider()
-
-    # --- Course overview ---
-    st.markdown("### 📝 Course overview")
-    st.markdown(
-        """
-        This course introduces the fundamental aspects of the English sound system with an emphasis on
-        learning and teaching English pronunciation. We cover the basic phonetic properties of English
-        speech sounds—**consonants and vowels**—and core concepts needed to understand the sound system.
-        We also explore **English prosody** (syllables, rhythm, and intonation).
-
-        You will practice **phonetic transcription** of spoken English data and develop skills for teaching
-        pronunciation. Throughout the course, you’ll learn to distinguish **connected vs. isolated speech** and
-        **formal vs. informal** styles.
-        """
-    )
-    AUDIO_URL = "https://raw.githubusercontent.com/MK316/english-phonetics/main/pages/audio/audio-overview.mp3"
-
-    # Click-to-play audio (no autoplay)
-    st.audio(AUDIO_URL, format="audio/mp3", start_time=0)
-
-    # --- Textbook & Software ---
-    st.markdown("### 📚 Textbook & Software")
-    tb, sw = st.columns(2)
-    with tb:
-        st.markdown(
-            """
-            **Textbook**  
-            Johnson, K. & Ladefoged, P. (2014). *A Course in Phonetics* (7th ed.). CENGAGE Learning.
-            """
-        )
-    with sw:
-        st.markdown(
-            """
-            **Software**  
-            Praat — download: <http://www.fon.hum.uva.nl/praat/download_win.html>
-            """
-        )
-
-    st.divider()
-
-    # --- Evaluation table ---
-    st.markdown("### ✅ Evaluation")
-    data = [
-        ["Attendance & class participation", "10%", "Unexcused absence (−1); late check-in (−0.2)"],
-        ["Quizzes", "30%", "TBA"],
-        ["Exam", "40%", "Final exam"],
-        ["Assignments", "10%", "Group activities: Exercises (5), Transcription (5)"],
-        ["Summary notes", "10%", "All chapters (will be checked 3 times)"],
-    ]
-    df = pd.DataFrame(data, columns=["Component", "Percentage", "Notes"])
-
-    st.dataframe(
-        df,
-        use_container_width=True,
-        hide_index=True,
-        column_config={
-            "Component": st.column_config.Column(width="medium"),
-            "Percentage": st.column_config.Column(width=90),
-            "Notes": st.column_config.Column(width="large"),
-        },
-    )
-
-    st.info(
-        "Note: The course schedule can be subject to change. "
-        "Most updates will be posted here."
-    )
