@@ -8,7 +8,7 @@ st.title("📘 Course Overview")
 tab1, tab2, tab3 = st.tabs(["Schedule", "Syllabus", "TBA"])
 
 with tab1:
-    st.caption("Textbooks: T1. A course in phonetics, T2. Applied English Phonology (AEP)
+    st.caption("Textbooks: T1. A course in phonetics, T2. Applied English Phonology (AEP)")
     # Table header
     table_header = "| Date | Chapter | Keywords | Assignments & Activities | Remark |\n"
     table_divider = "|------|---------|----------|---------------------------|--------|\n"
