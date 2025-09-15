@@ -2,7 +2,7 @@ import streamlit as st
 
 st.set_page_config(page_title="My App Collection", layout="centered")
 
-st.title("📚 Chapter 1 Applications")
+st.title("📚 Phonetics Practice Applications")
 st.write("Click a button below to open the app in a new tab. Each app is designed for English education with interactive features.")
 
 # Define your apps here
