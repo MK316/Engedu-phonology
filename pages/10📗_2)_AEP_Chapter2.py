@@ -17,7 +17,7 @@ GITHUB_REPO   = "Engedu-phonology"
 GITHUB_BRANCH = "main"
 FOLDER_PATH   = "pages/lecture/Ch02"
 
-FILENAME_PREFIX = "F25_Ch02_only."
+FILENAME_PREFIX = "Engedu_Ch02_Phonology."
 FILENAME_EXT    = ".png"
 START_INDEX     = 1
 END_INDEX       = 32
