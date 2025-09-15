@@ -1,151 +1,54 @@
-import re
-import unicodedata
 import streamlit as st
 
-# ---------------- Page setup ----------------
-st.set_page_config(page_title="Basic applications", page_icon="🗣️", layout="wide")
-st.title("🗣️ Understanding Speech Production")
+st.set_page_config(page_title="My App Collection", layout="centered")
 
-# ---------------- Config ----------------
-IMAGE_URL = "https://raw.githubusercontent.com/MK316/english-phonetics/main/pages/images/vocal_organ.png"
-TOTAL_ITEMS = 14
+st.title("📚 Chapter 1 Applications")
+st.write("Click a button below to open the app in a new tab. Each app is designed for English education with interactive features.")
 
-# 👉 Edit to match your diagram labels (lowercase; include synonyms).
-ANSWER_KEY = {
-    1:  ["upper lip"],
-    2:  ["upper teeth"],
-    3:  ["alveolar ridge"],
-    4:  ["hard palate"],
-    5:  ["soft palate", "velum"],
-    6:  ["uvula"],
-    7:  ["epiglottis"],
-    8:  ["lower lip"],
-    9:  ["tongue tip","tip of the tongue"],
-    10: ["tongue blade", "blade of the tongue"],
-    11: ["front of the tongue", "tongue front"],
-    12: ["center of the tongue","tongue center"],
-    13: ["back of the tongue", "tongue back"],
-    14: ["tongue root", "root of the tongue"],
-}
+# Define your apps here
+apps = [
+    {
+        "name": "1. Vocal Anatomy",
+        "url": "https://vocal-anatomy.streamlit.app/",
+        "description": "Explore the structure and function of vocal organs involved in speech production."
+    },
+    {
+        "name": "2. Consonant Full Description",
+        "url": "https://sound-description-1.streamlit.app/",
+        "description": "Review English consonants by their voicing, place, manner, centrality, and oro-nasal process."
+    },
+    {
+        "name": "3. Chapter 1 Term Practice & Quiz",
+        "url": "https://ch1-term-practice.streamlit.app/",
+        "description": "Test your understanding of key phonetics terms from Chapter 1 through interactive quizzes."
+    },
+    {
+        "name": "4. IPA practice",
+        "url": "https://ipa-practice.streamlit.app/",
+        "description": "Practice your familiarity with English IPA symbols by identifying articulatory features."
+    },
+    {
+        "name": "5. IPA quiz",
+        "url": "https://ipa-quiz2.streamlit.app/",
+        "description": "IPA quiz application."
+    }
+]
 
-# ---------------- Helpers ----------------
-def normalize(s: str) -> str:
-    s = unicodedata.normalize("NFKD", s).encode("ascii", "ignore").decode("ascii")
-    s = s.lower().strip()
-    s = re.sub(r"[\-_/]", " ", s)
-    s = re.sub(r"[^a-z\s]", "", s)
-    s = re.sub(r"\s+", " ", s).strip()
-    return s
 
-def is_correct(num: int, user_text: str) -> bool:
-    if not user_text:
-        return False
-    gold = [normalize(x) for x in ANSWER_KEY.get(num, [])]
-    guess = normalize(user_text)
-    if guess in gold:
-        return True
-    if guess.endswith("s") and guess[:-1] in gold:
-        return True
-    if (guess + "s") in gold:
-        return True
-    return False
-
-# ---------------- Tabs ----------------
-tab1, tab2, tab3 = st.tabs(["🌀 Vocal organs", "🌀 Tab 2 (coming soon)", "🌀 Tab 3 (coming soon)"])
-
-# =========================================================
-# TAB 1 — Image + 14 text boxes + single "Check answers"
-# =========================================================
-with tab1:
-    # Center the image
-    c1, c2, c3 = st.columns([1, 2, 1])
-    with c2:
-        st.image(IMAGE_URL, use_container_width=True,
-                 caption="Refer to the numbers (1–14) on this diagram.")
-
-    # Per-session state (isolated per user)
-    if "answers" not in st.session_state:
-        st.session_state.answers = {i: "" for i in range(1, TOTAL_ITEMS + 1)}
-    if "checked" not in st.session_state:
-        st.session_state.checked = False
-    if "results" not in st.session_state:
-        st.session_state.results = {}
-
-    # Reset
-    top = st.columns([1, 6, 1])
-    with top[0]:
-        if st.button("🔄 Reset", use_container_width=True):
-            st.session_state.answers = {i: "" for i in range(1, TOTAL_ITEMS + 1)}
-            st.session_state.checked = False
-            st.session_state.results = {}
-            st.rerun()
-
-    st.divider()
-
-    # ---- Input form with 14 boxes (two columns), each with question number label ----
-    st.subheader("📌 Type all answers, then click the button below to check the answers.")
-    with st.form("quiz_form"):
-        col_left, col_right = st.columns(2)
-
-        for i in range(1, TOTAL_ITEMS + 1, 2):
-            # Left column: odd numbers
-            with col_left:
-                label_i = f"{i}. ❄️ Number {i}"
-                st.session_state.answers[i] = st.text_input(
-                    label_i,
-                    value=st.session_state.answers.get(i, ""),
-                    key=f"ans_{i}",
-                    placeholder="Type here…",
-                    label_visibility="visible",
-                )
-            # Right column: even numbers
-            j = i + 1
-            if j <= TOTAL_ITEMS:
-                with col_right:
-                    label_j = f"{j}. ❄️ Number {j}"
-                    st.session_state.answers[j] = st.text_input(
-                        label_j,
-                        value=st.session_state.answers.get(j, ""),
-                        key=f"ans_{j}",
-                        placeholder="Type here…",
-                        label_visibility="visible",
-                    )
-
-        submitted = st.form_submit_button("Check answers", use_container_width=True)
-
-    # ---- Evaluate & show results ----
-    if submitted:
-        st.session_state.results = {
-            n: is_correct(n, st.session_state.answers.get(n, "")) for n in range(1, TOTAL_ITEMS + 1)
-        }
-        st.session_state.checked = True
-        st.rerun()
-
-    if st.session_state.checked:
-        correct_count = sum(1 for ok in st.session_state.results.values() if ok)
-        st.success(f"Score: **{correct_count} / {TOTAL_ITEMS}**")
-
-        rows = []
-        for n in range(1, TOTAL_ITEMS + 1):
-            user = st.session_state.answers.get(n, "")
-            ok = st.session_state.results.get(n, False)
-            gold_display = ", ".join(ANSWER_KEY.get(n, [])) or "(set me in ANSWER_KEY)"
-            rows.append({
-                "No.": n,
-                "Your answer": user if user else "—",
-                "Accepted answers": gold_display,
-                "Result": "✅ Correct" if ok else "❌ Incorrect",
-            })
-        st.dataframe(rows, use_container_width=True, hide_index=True)
-
-        if st.button("🧪 Try again", use_container_width=True):
-            st.session_state.checked = False
-            st.session_state.results = {}
-            st.rerun()
-
-# =========================================================
-with tab2:
-    st.info("Tab 2 will be updated later.")
-
-with tab3:
-    st.info("Tab 3 will be updated later.")
+# Display each app as a colored button with description
+for app in apps:
+    st.markdown(
+        f"""
+        <div style="margin-bottom: 20px; padding: 10px; border-radius: 10px; background-color: #e5ffcc;">
+            <h4 style="margin-bottom: 5px;">{app['name']}</h4>
+            <p style="margin-top: 0; margin-bottom: 10px;">{app['description']}</p>
+            <a href="{app['url']}" target="_blank">
+                <button style="background-color: #4CAF50; color: white; padding: 8px 16px;
+                               border: none; border-radius: 5px; font-size: 16px; cursor: pointer;">
+                    🍰 Open App
+                </button>
+            </a>
+        </div>
+        """,
+        unsafe_allow_html=True
+    )
