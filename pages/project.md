@@ -7,7 +7,7 @@ This project involves analyzing the English pronunciation of Korean learners usi
 ## 🎯 Project Overview
 
 - **Task**: Analyze one Korean learner’s English pronunciation using the checklist below.
-- **Goal**: Identify common errors, provide explanations, and offer pedagogical suggestions.
+- **Goal**: Identify common errors, provide phonetic descriptions/(additional) explanations, and offer pedagogical suggestions.
 - **Deliverables**:
   1. A **brief written report** (1–2 pages).
   2. A **short in-class presentation** (7–10 minutes).
