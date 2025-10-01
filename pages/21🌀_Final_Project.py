@@ -7,9 +7,6 @@ import requests
 import streamlit as st
 from urllib.parse import urlparse
 
-st.set_page_config(page_title="📄 Final Project — Markdown Viewer", layout="centered")
-
-st.title("📄 Final Project")
 st.caption("This page renders a Markdown file hosted on GitHub.")
 
 # ── 1) Set your Markdown file URL here ─────────────────────────────────────────
