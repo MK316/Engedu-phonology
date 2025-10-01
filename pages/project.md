@@ -1,13 +1,13 @@
 # Pronunciation Analysis Project: Graduate-Level Final Assignment
 
-This project involves analyzing the English pronunciation of Korean learners using authentic student recordings. Each student will be assigned **one audio file**, and your goal is to provide a **diagnostic analysis** with **instructional feedback**. This project draws on knowledge from your phonology course and should apply both **segmental** and **suprasegmental** frameworks.
+This project involves analyzing the English pronunciation of Korean learners using authentic student recordings. A total of 4 learner recordings will be provided and each student will be assigned **one audio file to focus on**. Your goal is to provide a **diagnostic analysis** with **instructional feedback**. This project draws on knowledge from your phonology course and should apply both **segmental** and **suprasegmental** frameworks.
 
 ---
 
 ## 🎯 Project Overview
 
-- **Task**: Analyze one Korean learner’s English pronunciation using the checklist below.
-- **Goal**: Identify common errors, provide phonetic descriptions/(additional) explanations, and offer pedagogical suggestions.
+- **Task**: 1) Analyze one Korean learner’s English pronunciation using the checklist below. 2) Include a comparative analysis by referring to the three audio files in addition to the focus audio.
+- **Goal**: Identify common errors, provide phonetic descriptions/(additional) explanations, and offer pedagogical suggestions for the target English learner.
 - **Deliverables**:
   1. A **brief written report** (2–3 pages): by Nov.27
   2. A **short in-class presentation** (10-15 minutes): during the final week
@@ -16,40 +16,37 @@ This project involves analyzing the English pronunciation of Korean learners usi
 
 ## ✅ Pronunciation Checklist for Korean Learners of English
 
-### 1. 🧩 Segmental Features
+### 1. Segmental Features
 
 #### A. Consonant-Related Issues
 
 | Feature | Description | Examples |
 |--------|-------------|----------|
-| **Voicing Contrast** | Voiced/voiceless pairs not distinguished clearly | /b/ vs. /p/, /d/ vs. /t/, /g/ vs. /k/ |
-| **Final Consonant Deletion** | Omission of final stops or nasals | *dog* → [dɑ] |
-| **Aspiration Errors** | Over/under-aspiration in word-initial voiceless stops | *pen* → [bɛn] |
-| **Consonant Cluster Simplification** | Insertion of vowel or deletion in clusters | *spring* → [sɯ.pɹɪŋ] |
 | **/f/ and /v/** Substitution | Mispronounced as /p/ and /b/ | *fan* → [pæn], *van* → [bæn] |
 | **/θ/ and /ð/** Substitution | Replaced with /s/, /d/, /t/, /z/ | *think* → [sɪŋk]; *this* → [dɪs] |
-| **/r/ and /l/** Confusion | Substitution or misarticulation, especially in coda | *light* vs. *right* |
-| **Glide Insertion or Deletion** | Unintended [j] or [w]; missing glides | *old* → [owld], *you* → [u] |
-| **Glottalization** | Glottal stop replaces final consonant | *cat* → [kæʔ] |
-| **Lack of Flapping** | No flapping between vowels | *butter* → [ˈbʌtər] instead of [ˈbʌɾər] |
-| **Dark /l/** | Velarized /l/ in coda not produced | *feel* → [fi.l] instead of [fi.ɫ] |
+| **/r/ and /l/** Contrast | Substitution or misarticulation, especially in coda | *light* vs. *right* |
+| **/z/, /ʒ/ and /dʒ/** Contrast | Substitution or misarticulation, especially in coda | *light* vs. *right* |
+| **Flapping rules** | No flapping between vowels | *butter* → [ˈbʌtər] instead of [ˈbʌɾər] |
+| **Light vs. Dark /l/** | Velarized /l/ in coda not produced | *feel* → [fi.l] instead of [fi.ɫ] |
+| **Voicing Contrast** | Voiced/voiceless pairs not distinguished clearly in certain contexts. | /b/ vs. /p/, /d/ vs. /t/, /g/ vs. /k/ |
+| **Consonant Deletion** | Omission of consonants | *dog* → [dɑ] |
+| **Aspiration Rules** | Over/under-aspiration in word-initial voiceless stops | *pen* → [bɛn] |
+| **Consonant Cluster and vowel insertion** | Insertion of vowel (/으/) | *spring* → [sɯ.pɯɹɪŋ] (스프링) |
+| **Incorrect assimilation**| palatalisation before /i/ vowel| *see*, *cinema* → [ʃi], [ʃɪnɛma]|
 
 #### B. Vowel-Related Issues
 
 | Feature | Description | Examples |
 |--------|-------------|----------|
-| **Vowel Length** | Lack of tense-lax distinction | *ship* vs. *sheep* both as [ʃip] |
-| **Lax vs. Tense** | Confusion between /ɪ/ and /i/, /ʊ/ and /u/ | *bit* vs. *beat* |
-| **Central Vowels** | /ə/, /ʌ/, /ɜː/ not clearly distinguished | *cup* → [kɔp] |
-| **Diphthong Simplification** | Monophthongization of diphthongs | *ride* → [rad] |
+| **Lax vs. Tense** | Lack of tense-lax distinction | *ship* vs. *sheep* both as [ʃip] |
+| **R-colored Vowels** | vowel + /r/ in American English | *turn* → r-dropping|
+| **Diphthong Simplification** | Monophthongization of diphthongs | *go* → [go] |
 | **/æ/ vs. /ɛ/** | Low-front vowel confusion | *bat* → [bɛt] |
-| **Vowel Insertion (Epenthesis)** | Unwanted vowels added between consonants | *black* → [bɯ.læk] |
-| **/ɔ/ vs. /ɑ/** | Merged vowels due to lack of /ɔ/ in Korean | *cot* = *caught* |
-| **Lack of Schwa Reduction** | Schwa pronounced as full vowel | *banana* → [bæ.næ.næ] |
+| **Lack of Schwa Reduction** | Schwa pronounced as full vowel | *banana* → [ba.na.na] |
 
 ---
 
-### 2. 📏 Suprasegmental Features
+### 2. Suprasegmental Features
 
 #### A. Word Stress
 
@@ -64,22 +61,22 @@ This project involves analyzing the English pronunciation of Korean learners usi
 |--------|-------------|----------|
 | **Contrastive Stress Misuse** | Incorrect emphasis on contrast | *I said GREEN tea, not BLACK tea* |
 | **Function Word Emphasis** | Equal stress on all words | *He is going to the store* said robotically |
-| **No Content-Function Distinction** | Flat or unnatural prominence | Monotone delivery |
 
 #### C. Intonation
 
 | Feature | Description | Examples |
 |--------|-------------|----------|
 | **Rising/Falling Misuse** | Unnatural pitch contours | Statement said with rising tone |
-| **Wh- vs. Yes/No Questions** | Incorrect intonation patterns | *What are you doing?* with rising tone |
-| **Tag Questions** | Inappropriate final rise/fall | *It's nice, isn't it?* with rising instead of falling |
+| **Monotonous speech** | Boring speech style, ineffective delivery |  |
+
 
 #### D. Thought Grouping / Pausing
 
 | Feature | Description | Examples |
 |--------|-------------|----------|
 | **Lack of Chunking** | No grouping of meaning units | *When I was young / I lived in Seoul* becomes flat |
-| **Unnatural Pausing** | Pauses at wrong places | *I / want to go home* |
+| **Lack of Sound Linking** | Linking sounds within a thought group | |
+| **Unnatural Pausing** | Pauses at wrong places; Word by word reading | *I / want to go home* |
 
 ---
 
@@ -99,13 +96,13 @@ Your written report should include the following sections:
 5. **Pedagogical Suggestions**:
    - Suggest practical feedback the learner could use.
    - Recommend tools, practice tasks, or instructional tips.
-6. **Conclusion**: Summary of strengths, weaknesses, and main teaching points.
+6. **Conclusion**: Summary of strengths, weaknesses, and main articulatory points to improve.
 
-> 📌 *Length: Around 1–2 pages (typed, double-spaced, clear section headings)*
+> 📌 *Length: Around 2-3 pages (typed, single-spaced, clear section headings)*
 
 ---
 
-## 🎤 Final Presentation Guidelines
+## Final Presentation Guidelines
 
 You will present your analysis to the class with slides or handouts. Your presentation should include:
 
@@ -116,20 +113,19 @@ You will present your analysis to the class with slides or handouts. Your presen
 - Phonological rules you applied
 - Practical feedback and teaching ideas
 
-> ⏱️ *Time limit: 7–10 minutes. Be concise and clear.*
+> ⏱️ *Time limit: 10 - 15 minutes. Be concise and clear.*
 
 ---
 
 ## 🧾 Submission
 
-- **Written Report**: Submit via LMS or Google Drive folder before your presentation.
-- **Presentation Slides**: Optional to submit in advance, but encouraged.
+- **Written Report**: Submit via LMS or Google Drive folder before your presentation (11/27).
+- **Presentation Video**: To be announced (final week).
 
-Let me know if you have questions about tools (e.g., Audacity, Praat, ELAN), transcription, or formatting.
 
 ---
 
-## 🧠 Tip
+## 🌀 Tip
 
 Good pronunciation instruction is not about perfection but about **intelligibility** and **pedagogical clarity**. Show that you understand the learner’s needs and propose **realistic, well-informed solutions**.
 
