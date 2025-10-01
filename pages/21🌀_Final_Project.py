@@ -134,10 +134,9 @@ with tab2:
 
 # ── Tab 3: PDF ────────────────────────────────────────────────────────────────
 with tab3:
-    st.subheader("Rainbow passage")
     st.markdown("[pdf download](GITHUB_PDF_URL)")
     st.markdown("""
-        ### Rainbow passage
+        ### 🌱 Rainbow passage
 
         ---
         
