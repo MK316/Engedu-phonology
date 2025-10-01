@@ -1,4 +1,4 @@
-# Pronunciation Analysis Project: Graduate-Level Final Assignment
+# 🍃 Pronunciation Analysis Project: Graduate-Level Final Assignment
 
 This project involves analyzing the English pronunciation of Korean learners using authentic student recordings. A total of 4 learner recordings will be provided and each student will be assigned **one audio file to focus on**. Your goal is to provide a **diagnostic analysis** with **instructional feedback**. This project draws on knowledge from your phonology course and should apply both **segmental** and **suprasegmental** frameworks.
 
