@@ -9,7 +9,7 @@ import streamlit as st
 # ---------------- Page setup ----------------
 st.set_page_config(page_title="Lecture Slide Player - Research Paper", layout="wide")
 st.markdown("#### 📗 Pronunciation Research: Derwing (2018)")
-# st.markdown("[Reading01-chapter 1](https://github.com/MK316/classmaterial/blob/main/readings/Ch01.pdf)")
+st.markdown("[Reading01-chapter](https://github.com/MK316/Engedu-phonology/blob/main/pages/lecture/DW2018.pdf)")
 
 # ------------ CONFIG ------------
 GITHUB_OWNER  = "MK316"
