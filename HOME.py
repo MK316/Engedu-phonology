@@ -11,6 +11,6 @@ st.caption(
 col_l, col_c, col_r = st.columns([1,2,1])
 with col_c:
     st.image("https://github.com/MK316/classmaterial/raw/main/images/bg01.png",
-             caption="Teaching is one of the best ways to learn.", width=300)
+             caption="Teaching is one of the best ways to learn.", width=400)
     st.image("https://github.com/MK316/classmaterial/raw/main/images/engedu-qr.png",
-             caption="Access QR", width=100)
+             caption="Access QR", width=50)
