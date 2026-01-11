@@ -11,4 +11,4 @@ st.caption(
 st.image("https://github.com/MK316/classmaterial/raw/main/images/bg01.png",
              caption="Teaching is one of the best ways to learn.", width=400)
 st.image("https://github.com/MK316/classmaterial/raw/main/images/engedu-qr.png",
-             caption="Access QR", width=50)
+             caption="Access QR", use_container_width=True)
